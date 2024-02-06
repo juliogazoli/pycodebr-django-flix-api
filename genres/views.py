@@ -37,3 +37,9 @@ def genre_datail_view(request, pk):
         return JsonResponse(
             {'id': genre.id, 'name': genre.name}, status=201
         )
+
+    elif request.method == 'DELETE':
+        genre.delete()
+        return JsonResponse(
+            {'message': 'Gênero excluído com sucesso.'}, status=204
+        )
